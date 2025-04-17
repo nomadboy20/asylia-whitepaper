@@ -1,8 +1,20 @@
 import tailwindcss from "@tailwindcss/vite";
 import tailwindPostcss from "@tailwindcss/postcss";
+import { addPrerenderRoutes } from '@nuxt/kit'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    nitro: {
+        preset: 'node-server',
+    },
+    hooks: {
+        // počas build‑time upravíme Nitro config
+        'nitro:config'(nitroConfig) {
+            // pridáme presne tú jednu routu, ktorú chceme,
+            // vygeneruje sa .output/public/index.html
+            addPrerenderRoutes(['/'])
+        }
+    },
     supabase: {
         redirect: false,
         url: process.env.SUPABASE_URL,
