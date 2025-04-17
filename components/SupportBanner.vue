@@ -23,7 +23,7 @@
 <script setup>
 import {ref, onMounted} from 'vue'
 
-const btcAddress = 'bc1pjwmarzyqkmkqhgzq0vghzvpvegqhph5sw3hvk9p32df2952tavsqjslucu'
+const btcAddress = '1111111'
 const balanceBTC = ref('-')
 
 const fetchBalance = async () => {
